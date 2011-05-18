@@ -13,7 +13,7 @@ Patch1:		auth-ldap-2.0.3-README.patch
 Patch2:		openvpn-auth-ldap-2.0.3-disable-tests.patch
 # This is a plugin not linked against a lib, so hardcode the requirement
 # since we require the parent configuration and plugin directories
-Requires:	openvpn >= 2.1.4-4
+Requires:	openvpn >= 2.1.4
 BuildRequires:	re2c
 Buildrequires:	doxygen
 Buildrequires:	openldap-devel
