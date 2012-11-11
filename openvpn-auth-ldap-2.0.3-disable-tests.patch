@@ -1,0 +1,12 @@
+--- auth-ldap-2.0.3/Makefile.in.orig	2008-05-19 17:57:06.000000000 +0200
++++ auth-ldap-2.0.3/Makefile.in	2008-05-19 17:57:12.000000000 +0200
+@@ -1,8 +1,7 @@
+ top_srcdir=	@top_srcdir@
+ 
+ SUBDIR=		tools \
+-		src \
+-		@CHECK_DIRS@
++		src
+ 
+ include Mk/subdir.mk
+ include Mk/autoconf.mk
