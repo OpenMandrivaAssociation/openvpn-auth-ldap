@@ -1,0 +1,42 @@
+diff -Naupr auth-ldap-2.0.3.orig/aclocal.m4 auth-ldap-2.0.3/aclocal.m4
+--- auth-ldap-2.0.3.orig/aclocal.m4	2006-09-12 22:44:13.000000000 +0200
++++ auth-ldap-2.0.3/aclocal.m4	2012-02-08 19:35:42.314356627 +0100
+@@ -129,7 +129,7 @@ AC_DEFUN([OD_OBJC_RUNTIME],[
+ 			AC_LINK_IFELSE([
+ 					AC_LANG_PROGRAM([
+ 							#include <objc/objc.h>
+-							#include <objc/objc-api.h>
++							#include <objc/runtime.h>
+ 						], [
+ 							id class = objc_lookUpClass("Object");
+ 							id obj = @<:@class alloc@:>@;
+@@ -156,7 +156,7 @@ AC_DEFUN([OD_OBJC_RUNTIME],[
+ 			AC_LINK_IFELSE([
+ 					AC_LANG_PROGRAM([
+ 							#include <objc/objc.h>
+-							#include <objc/objc-api.h>
++							#include <objc/runtime.h>
+ 						], [
+ 							id class = objc_lookup_class("Object");
+ 							id obj = @<:@class alloc@:>@;
+diff -Naupr auth-ldap-2.0.3.orig/configure auth-ldap-2.0.3/configure
+--- auth-ldap-2.0.3.orig/configure	2007-03-22 21:32:56.000000000 +0100
++++ auth-ldap-2.0.3/configure	2012-02-08 19:35:57.338231240 +0100
+@@ -6367,7 +6367,7 @@ cat >>conftest.$ac_ext <<_ACEOF
+ /* end confdefs.h.  */
+ 
+ 							#include <objc/objc.h>
+-							#include <objc/objc-api.h>
++							#include <objc/runtime.h>
+ 
+ int
+ main ()
+@@ -6459,7 +6459,7 @@ cat >>conftest.$ac_ext <<_ACEOF
+ /* end confdefs.h.  */
+ 
+ 							#include <objc/objc.h>
+-							#include <objc/objc-api.h>
++							#include <objc/runtime.h>
+ 
+ int
+ main ()
