@@ -4,7 +4,7 @@ Version:	2.0.3
 Release:	1
 License:	BSD
 Group:		Networking/Other
-URL:		http://code.google.com/p/openvpn-auth-ldap/
+Url:		http://code.google.com/p/openvpn-auth-ldap/
 Source0:	http://openvpn-auth-ldap.googlecode.com/files/auth-ldap-%{version}.tar.gz
 Source1:	openvpn-plugin.h
 Patch0:		auth-ldap-2.0.3-top_builddir.patch
@@ -13,51 +13,45 @@ Patch2:		auth-ldap-2.0.3-tools-CFLAGS.patch
 Patch3:		auth-ldap-2.0.3-objc-include.patch
 # This is a plugin not linked against a lib, so hardcode the requirement
 # since we require the parent configuration and plugin directories
-Requires:	openvpn >= 2.0
-BuildRequires:	re2c
 Buildrequires:	doxygen
-Buildrequires:	openldap-devel
-BuildRequires:	check-devel
 BuildRequires:	gcc-objc
+BuildRequires:	re2c
+Buildrequires:	openldap-devel
+BuildRequires:	pkgconfig(check)
+Requires:	openvpn >= 2.0
 
 %description
 The OpenVPN Auth-LDAP Plugin implements username/password authentication via
 LDAP for OpenVPN 2.x.
 
-
 %prep
-%setup -q -n auth-ldap-%{version}
-%patch0 -p1 -b .top_builddir
-%patch1 -p1 -b .README
-%patch2 -p1 -b .tools-CFLAGS
-%patch3 -p1 -b .objc-include
+%setup -qn auth-ldap-%{version}
+%apply_patches
 # Fix plugin from the instructions in the included README
 sed -i 's|^plugin .*| plugin %{_libdir}/openvpn/plugin/lib/openvpn-auth-ldap.so "/etc/openvpn/auth/ldap.conf"|g' README
 # Install the one required OpenVPN plugin header
 install -p -m 0644 %{SOURCE1} .
 
-
 %build
 # Fix undefined objc_msgSend reference (nope, the with-objc-runtime is enough)
 #export OBJCFLAGS=-fobjc-abi-version=2
-%configure \
-    --with-objc-runtime=GNU \
-    --libdir=%{_libdir}/openvpn/plugin/lib \
-    --with-openvpn="`pwd`"
-make %{?_smp_mflags}
-
+%configure2_5x \
+	--with-objc-runtime=GNU \
+	--libdir=%{_libdir}/openvpn/plugins \
+	--with-openvpn="`pwd`"
+%make
 
 %install
 # Main plugin
-mkdir -p %{buildroot}%{_libdir}/openvpn/plugin/lib
-make install DESTDIR=%{buildroot}
+mkdir -p %{buildroot}%{_libdir}/openvpn/plugins
+%makeinstall_std
 # Example config file
 install -D -p -m 0600 auth-ldap.conf \
-    %{buildroot}%{_sysconfdir}/openvpn/auth/ldap.conf
-
+	%{buildroot}%{_sysconfdir}/openvpn/auth/ldap.conf
 
 %files
 %doc LICENSE README auth-ldap.conf
 %dir %{_sysconfdir}/openvpn/auth/
 %config(noreplace) %{_sysconfdir}/openvpn/auth/ldap.conf
-%{_libdir}/openvpn/plugin/lib/openvpn-auth-ldap.so
+%{_libdir}/openvpn/plugins/openvpn-auth-ldap.so
+
