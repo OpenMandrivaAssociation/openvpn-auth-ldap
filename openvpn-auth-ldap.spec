@@ -36,7 +36,8 @@ install -p -m 0644 %{SOURCE1} .
 %build
 # Fix undefined objc_msgSend reference (nope, the with-objc-runtime is enough)
 #export OBJCFLAGS=-fobjc-abi-version=2
-%configure2_5x \
+export CC=gcc
+%configure \
 	--with-objc-runtime=GNU \
 	--libdir=%{_libdir}/openvpn/plugins \
 	--with-openvpn="`pwd`"
