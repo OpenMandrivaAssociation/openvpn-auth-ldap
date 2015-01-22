@@ -15,6 +15,7 @@ Patch3:		auth-ldap-2.0.3-objc-include.patch
 # since we require the parent configuration and plugin directories
 Buildrequires:	doxygen
 BuildRequires:	gcc-objc
+BuildRequires:	objc-devel
 BuildRequires:	re2c
 Buildrequires:	openldap-devel
 BuildRequires:	pkgconfig(check)
