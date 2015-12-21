@@ -1,3 +1,6 @@
+%define _disable_lto 1
+%define _disable_rebuild_configure 1
+
 Summary:	OpenVPN plugin for LDAP authentication
 Name:		openvpn-auth-ldap
 Version:	2.0.3
