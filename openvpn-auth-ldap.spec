@@ -4,7 +4,7 @@
 Summary:	OpenVPN plugin for LDAP authentication
 Name:		openvpn-auth-ldap
 Version:	2.0.3
-Release:	10
+Release:	11
 License:	BSD
 Group:		Networking/Other
 Url:		http://code.google.com/p/openvpn-auth-ldap/
