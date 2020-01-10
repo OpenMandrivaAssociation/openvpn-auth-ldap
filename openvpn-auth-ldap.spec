@@ -30,7 +30,7 @@ LDAP for OpenVPN 2.x.
 
 %prep
 %setup -qn auth-ldap-%{version}
-%apply_patches
+%autopatch -p1
 # Fix plugin from the instructions in the included README
 sed -i 's|^plugin .*| plugin %{_libdir}/openvpn/plugin/lib/openvpn-auth-ldap.so "/etc/openvpn/auth/ldap.conf"|g' README
 # Install the one required OpenVPN plugin header
