@@ -11,7 +11,7 @@ Url:		https://code.google.com/p/openvpn-auth-ldap/
 Source0:	https://github.com/threerings/openvpn-auth-ldap/archive/refs/tags/auth-ldap-%{version}/openvpn-auth-ldap-auth-ldap-%{version}.tar.gz
 #Source0:	https://openvpn-auth-ldap.googlecode.com/files/auth-ldap-%{version}.tar.gz
 Source1:	openvpn-plugin.h
-Patch0:		auth-ldap-2.0.3-top_builddir.patch
+#Patch0:		auth-ldap-2.0.3-top_builddir.patch
 Patch1:		auth-ldap-2.0.3-README.patch
 Patch2:		auth-ldap-2.0.3-tools-CFLAGS.patch
 Patch3:		auth-ldap-2.0.3-objc-include.patch
