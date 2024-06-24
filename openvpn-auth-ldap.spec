@@ -21,7 +21,7 @@ Buildrequires:	doxygen
 BuildRequires:	gcc-objc
 BuildRequires:	objc-devel
 BuildRequires:	re2c
-Buildrequires:	openldap-devel
+Buildrequires:	pkgconfig(ldap)
 BuildRequires:	pkgconfig(check)
 Requires:	openvpn >= 2.0
 
