@@ -17,11 +17,11 @@ Source1:	openvpn-plugin.h
 #Patch3:		auth-ldap-2.0.3-objc-include.patch
 # This is a plugin not linked against a lib, so hardcode the requirement
 # since we require the parent configuration and plugin directories
-Buildrequires:	doxygen
+BuildRequires:	doxygen
 BuildRequires:	gcc-objc
 BuildRequires:	objc-devel
 BuildRequires:	re2c
-Buildrequires:	pkgconfig(ldap)
+BuildRequires:	pkgconfig(ldap)
 BuildRequires:	pkgconfig(check)
 Requires:	openvpn >= 2.0
 
@@ -33,7 +33,7 @@ LDAP for OpenVPN 2.x.
 %setup -qn openvpn-auth-ldap-auth-ldap-%{version}
 %autopatch -p1
 # Fix plugin from the instructions in the included README
-sed -i 's|^plugin .*| plugin %{_libdir}/openvpn/plugin/lib/openvpn-auth-ldap.so "/etc/openvpn/auth/ldap.conf"|g' README
+#sed -i 's|^plugin .*| plugin %{_libdir}/openvpn/plugin/lib/openvpn-auth-ldap.so "/etc/openvpn/auth/ldap.conf"|g' README
 # Install the one required OpenVPN plugin header
 install -p -m 0644 %{SOURCE1} .
 
