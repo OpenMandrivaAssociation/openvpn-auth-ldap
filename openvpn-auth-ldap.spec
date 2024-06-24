@@ -3,12 +3,13 @@
 
 Summary:	OpenVPN plugin for LDAP authentication
 Name:		openvpn-auth-ldap
-Version:	2.0.3
-Release:	12
+Version:	2.0.4
+Release:	1
 License:	BSD
 Group:		Networking/Other
-Url:		http://code.google.com/p/openvpn-auth-ldap/
-Source0:	http://openvpn-auth-ldap.googlecode.com/files/auth-ldap-%{version}.tar.gz
+Url:		https://code.google.com/p/openvpn-auth-ldap/
+Source0:	https://github.com/threerings/openvpn-auth-ldap/archive/refs/tags/auth-ldap-%{version}/openvpn-auth-ldap-auth-ldap-%{version}.tar.gz
+#Source0:	https://openvpn-auth-ldap.googlecode.com/files/auth-ldap-%{version}.tar.gz
 Source1:	openvpn-plugin.h
 Patch0:		auth-ldap-2.0.3-top_builddir.patch
 Patch1:		auth-ldap-2.0.3-README.patch
@@ -29,7 +30,7 @@ The OpenVPN Auth-LDAP Plugin implements username/password authentication via
 LDAP for OpenVPN 2.x.
 
 %prep
-%setup -qn auth-ldap-%{version}
+%setup -qn openvpn-auth-ldap-auth-ldap-%{version}
 %autopatch -p1
 # Fix plugin from the instructions in the included README
 sed -i 's|^plugin .*| plugin %{_libdir}/openvpn/plugin/lib/openvpn-auth-ldap.so "/etc/openvpn/auth/ldap.conf"|g' README
