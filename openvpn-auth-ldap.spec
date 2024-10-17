@@ -7,7 +7,7 @@ Version:	2.0.3
 Release:	12
 License:	BSD
 Group:		Networking/Other
-Url:		http://code.google.com/p/openvpn-auth-ldap/
+Url:		https://code.google.com/p/openvpn-auth-ldap/
 Source0:	http://openvpn-auth-ldap.googlecode.com/files/auth-ldap-%{version}.tar.gz
 Source1:	openvpn-plugin.h
 Patch0:		auth-ldap-2.0.3-top_builddir.patch
