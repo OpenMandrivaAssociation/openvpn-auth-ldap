@@ -16,6 +16,11 @@ Patch2:		auth-ldap-2.0.3-tools-CFLAGS.patch
 Patch3:		auth-ldap-2.0.3-objc-include.patch
 # This is a plugin not linked against a lib, so hardcode the requirement
 # since we require the parent configuration and plugin directories
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 Buildrequires:	doxygen
 BuildRequires:	gcc-objc
 BuildRequires:	objc-devel
